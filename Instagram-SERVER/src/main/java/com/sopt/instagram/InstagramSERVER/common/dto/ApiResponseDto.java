@@ -2,14 +2,15 @@ package com.sopt.instagram.InstagramSERVER.common.dto;
 
 import com.sopt.instagram.InstagramSERVER.exception.ErrorStatus;
 import com.sopt.instagram.InstagramSERVER.exception.SuccessStatus;
-import lombok.AccessLevel;
+import static lombok.AccessLevel.PRIVATE;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 
 @Getter
-@RequiredArgsConstructor(access = AccessLevel.PRIVATE)
-@AllArgsConstructor(access = AccessLevel.PRIVATE)
+@RequiredArgsConstructor(access = PRIVATE)
+@AllArgsConstructor(access = PRIVATE)
 public class ApiResponseDto<T> {
 
     private final int code;
