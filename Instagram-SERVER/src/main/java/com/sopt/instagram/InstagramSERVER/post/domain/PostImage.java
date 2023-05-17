@@ -22,6 +22,7 @@ public class PostImage {
     @Column(nullable = false)
     private String imageUrl;
 
+    @Builder
     public PostImage(Post post, String url) {
         this.post = post;
         this.imageUrl = url;

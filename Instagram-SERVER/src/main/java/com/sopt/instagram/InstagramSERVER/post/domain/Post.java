@@ -5,10 +5,8 @@ import lombok.*;
 
 import javax.persistence.*;
 
-@Builder
 @Getter
 @Entity
-@AllArgsConstructor
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Post {
 
@@ -22,4 +20,10 @@ public class Post {
     private Member member;
 
     private String content;
+
+    @Builder
+    public Post(Member member, String content) {
+        this.member = member;
+        this.content = content;
+    }
 }
