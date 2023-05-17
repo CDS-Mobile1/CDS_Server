@@ -4,18 +4,22 @@ import lombok.*;
 
 import javax.persistence.*;
 
+import static javax.persistence.FetchType.*;
+import static javax.persistence.GenerationType.*;
+import static lombok.AccessLevel.*;
+
 
 @Getter
 @Entity
-@NoArgsConstructor(access = AccessLevel.PROTECTED)
+@NoArgsConstructor(access = PROTECTED)
 public class PostImage {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = IDENTITY)
     @Column(name = "post_image_id")
     private Long id;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = LAZY)
     @JoinColumn(name = "post_id", nullable = false)
     private Post post;
 
