@@ -8,4 +8,5 @@ import java.util.List;
 
 public interface FriendRepository extends Repository<Friend, Long> {
     List<Friend> findByFollowMemberId(Long friendId);
+    List<Friend> findByFollowMemberIdAndIsFavorite(Long friendId, Boolean isFavorite);
 }

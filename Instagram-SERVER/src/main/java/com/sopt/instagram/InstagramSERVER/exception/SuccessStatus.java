@@ -22,7 +22,8 @@ public enum SuccessStatus {
     /*
     friend
      */
-    READ_ALL_FRIEND_STORY_SUCCESS(HttpStatus.OK, "팔로우한 친구들 스토리 목록 조회 성공")
+    READ_ALL_FRIEND_STORY_SUCCESS(HttpStatus.OK, "팔로우한 친구들 스토리 목록 조회 성공"),
+    READ_FAVORITES_FRIEND_STORY_SUCCESS(HttpStatus.OK, "즐겨찾기한 친구들 스토리 목록 조회 성공")
     ;
 
     private final HttpStatus httpStatus;
