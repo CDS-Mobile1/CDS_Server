@@ -1,6 +1,5 @@
-package com.sopt.instagram.InstagramSERVER.friend.controller.dto;
+package com.sopt.instagram.InstagramSERVER.friend.controller.dto.response;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

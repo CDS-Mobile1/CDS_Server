@@ -4,6 +4,7 @@ import com.sopt.instagram.InstagramSERVER.member.domain.Member;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 import javax.persistence.*;
 
@@ -40,5 +41,9 @@ public class Friend {
         this.followedMember = followedMember;
         this.isFavorite = isFavorite;
         this.isSpecial = isSpecial;
+    }
+
+    public void changeFavoriteStatus(boolean isFavorite) {
+        this.isFavorite = isFavorite;
     }
 }
