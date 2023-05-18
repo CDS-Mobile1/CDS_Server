@@ -22,4 +22,10 @@ public class FriendController {
     public ApiResponseDto<List<FriendResponseDto>> getAllFriendStories(@RequestHeader(value = "Authorization") Long memberId) {
         return ApiResponseDto.success(SuccessStatus.READ_ALL_FRIEND_STORY_SUCCESS, friendService.getAllFriendStories(memberId));
     }
+
+    @GetMapping("/favorites/stories")
+    @ResponseStatus(HttpStatus.OK)
+    public ApiResponseDto<List<FriendResponseDto>> getAllFavoritesStories(@RequestHeader(value = "Authorization") Long memberId) {
+        return ApiResponseDto.success(SuccessStatus.READ_FAVORITES_FRIEND_STORY_SUCCESS, friendService.getAllFavoritesStories(memberId));
+    }
 }

@@ -32,4 +32,14 @@ public class FriendServiceImpl implements FriendService {
                 })
                 .collect(Collectors.toList());
     }
+
+    @Override
+    public List<FriendResponseDto> getAllFavoritesStories (Long memberId) {
+        return friendRepository.findByFollowMemberIdAndIsFavorite(memberId, true).stream()
+                .map(findFriend -> {
+                    Member member = memberRepository.findById(findFriend.getFollowedMember().getId()).orElseThrow();
+                    return FriendResponseDto.of(member.getId(), member.getProfileUrl(), member.getName(), findFriend.getIsSpecial());
+                })
+                .collect(Collectors.toList());
+    }
 }
