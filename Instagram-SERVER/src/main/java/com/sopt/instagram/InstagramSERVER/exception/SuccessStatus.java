@@ -23,6 +23,12 @@ public enum SuccessStatus {
     story_tag
      */
     STORY_TAGGED_MEMBER_INQUIRY_SUCCESS(HttpStatus.OK, "해당 스토리에 태그된 멤버 조회완료"),
+    
+    /*
+    friend
+     */
+    READ_ALL_FRIEND_STORY_SUCCESS(HttpStatus.OK, "팔로우한 친구들 스토리 목록 조회 성공"),
+    READ_FAVORITES_FRIEND_STORY_SUCCESS(HttpStatus.OK, "즐겨찾기한 친구들 스토리 목록 조회 성공")
     ;
 
     private final HttpStatus httpStatus;
