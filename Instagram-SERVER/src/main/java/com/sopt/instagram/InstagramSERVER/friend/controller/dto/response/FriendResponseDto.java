@@ -1,7 +1,8 @@
-package com.sopt.instagram.InstagramSERVER.friend.controller.dto;
+package com.sopt.instagram.InstagramSERVER.friend.controller.dto.response;
 
 import com.sopt.instagram.InstagramSERVER.friend.domain.Friend;
 import com.sopt.instagram.InstagramSERVER.member.domain.Member;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
