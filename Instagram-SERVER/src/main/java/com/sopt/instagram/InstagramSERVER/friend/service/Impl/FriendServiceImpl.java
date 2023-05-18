@@ -28,7 +28,7 @@ public class FriendServiceImpl implements FriendService {
         return friendRepository.findByFollowMemberId(memberId).stream()
                 .map(findFriend -> {
                     Member member = memberRepository.findById(findFriend.getFollowedMember().getId()).orElseThrow();
-                    return FriendResponseDto.of(member.getId(), member.getProfileUrl(), member.getName(), findFriend.getIsSpecial());
+                    return FriendResponseDto.of(member, findFriend);
                 })
                 .collect(Collectors.toList());
     }

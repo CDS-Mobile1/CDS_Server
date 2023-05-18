@@ -1,6 +1,7 @@
 package com.sopt.instagram.InstagramSERVER.friend.controller.dto;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
+import com.sopt.instagram.InstagramSERVER.friend.domain.Friend;
+import com.sopt.instagram.InstagramSERVER.member.domain.Member;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -17,7 +18,7 @@ public class FriendResponseDto {
     private String memberName;
     private Boolean isSpecial;
 
-    public static FriendResponseDto of(Long memberId, String memberImageUrl, String memberName, boolean isSpecial) {
-        return new FriendResponseDto(memberId, memberImageUrl, memberName, isSpecial);
+    public static FriendResponseDto of(Member member, Friend friend) {
+        return new FriendResponseDto(member.getId(), member.getProfileUrl(), member.getName(), friend.getIsSpecial());
     }
 }
