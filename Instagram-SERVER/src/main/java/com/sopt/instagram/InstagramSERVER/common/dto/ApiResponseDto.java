@@ -1,8 +1,8 @@
 package com.sopt.instagram.InstagramSERVER.common.dto;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
-import com.sopt.instagram.InstagramSERVER.exception.ErrorStatus;
-import com.sopt.instagram.InstagramSERVER.exception.SuccessStatus;
+import com.sopt.instagram.InstagramSERVER.common.exception.ErrorStatus;
+import com.sopt.instagram.InstagramSERVER.common.exception.SuccessStatus;
 import static lombok.AccessLevel.PRIVATE;
 
 import lombok.AllArgsConstructor;

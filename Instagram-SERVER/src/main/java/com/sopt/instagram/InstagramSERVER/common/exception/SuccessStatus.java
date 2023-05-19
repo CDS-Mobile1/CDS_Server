@@ -1,4 +1,4 @@
-package com.sopt.instagram.InstagramSERVER.exception;
+package com.sopt.instagram.InstagramSERVER.common.exception;
 
 import lombok.AccessLevel;
 import lombok.Getter;
@@ -13,6 +13,7 @@ public enum SuccessStatus {
     post
      */
     POST_CREATE_SUCCESS(HttpStatus.CREATED, "게시물 생성 완료"),
+    READ_POST_BY_MEMBER_SUCCESS(HttpStatus.OK, "게시물 조회 성공"),
 
     /*
     story

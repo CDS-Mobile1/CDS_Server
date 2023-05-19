@@ -1,5 +1,6 @@
 package com.sopt.instagram.InstagramSERVER.story.domain;
 
+import com.sopt.instagram.InstagramSERVER.common.domain.TimeStamped;
 import com.sopt.instagram.InstagramSERVER.member.domain.Member;
 import lombok.Builder;
 import lombok.Getter;
@@ -14,7 +15,7 @@ import static lombok.AccessLevel.PROTECTED;
 @Entity
 @Getter
 @NoArgsConstructor(access = PROTECTED)
-public class Story {
+public class Story extends TimeStamped {
     @Id
     @GeneratedValue(strategy = IDENTITY)
     @Column(name = "story_id")
@@ -31,5 +32,6 @@ public class Story {
     public Story(Member member, String imageUrl) {
         this.member = member;
         this.imageUrl = imageUrl;
+        this.member.addStory(this);
     }
 }

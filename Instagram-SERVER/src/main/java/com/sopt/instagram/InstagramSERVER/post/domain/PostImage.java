@@ -1,5 +1,6 @@
 package com.sopt.instagram.InstagramSERVER.post.domain;
 
+import com.sopt.instagram.InstagramSERVER.common.domain.TimeStamped;
 import lombok.*;
 
 import javax.persistence.*;
@@ -12,7 +13,7 @@ import static lombok.AccessLevel.*;
 @Getter
 @Entity
 @NoArgsConstructor(access = PROTECTED)
-public class PostImage {
+public class PostImage extends TimeStamped {
 
     @Id
     @GeneratedValue(strategy = IDENTITY)
@@ -30,5 +31,6 @@ public class PostImage {
     public PostImage(Post post, String url) {
         this.post = post;
         this.imageUrl = url;
+        this.post.addPostImage(this);
     }
 }

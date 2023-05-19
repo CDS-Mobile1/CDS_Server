@@ -1,4 +1,4 @@
-package com.sopt.instagram.InstagramSERVER.exception;
+package com.sopt.instagram.InstagramSERVER.common.exception;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;

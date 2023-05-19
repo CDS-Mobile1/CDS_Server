@@ -1,7 +1,7 @@
 package com.sopt.instagram.InstagramSERVER.friend.controller;
 
 import com.sopt.instagram.InstagramSERVER.common.dto.ApiResponseDto;
-import com.sopt.instagram.InstagramSERVER.exception.SuccessStatus;
+import com.sopt.instagram.InstagramSERVER.common.exception.SuccessStatus;
 import com.sopt.instagram.InstagramSERVER.friend.controller.dto.request.UpdateFavoriteStatusDto;
 import com.sopt.instagram.InstagramSERVER.friend.controller.dto.response.FriendResponseDto;
 import com.sopt.instagram.InstagramSERVER.friend.service.FriendService;
