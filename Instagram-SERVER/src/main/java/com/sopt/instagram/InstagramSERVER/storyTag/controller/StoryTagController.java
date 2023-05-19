@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
-import static com.sopt.instagram.InstagramSERVER.exception.SuccessStatus.STORY_TAGGED_MEMBER_INQUIRY_SUCCESS;
+import static com.sopt.instagram.InstagramSERVER.common.exception.SuccessStatus.STORY_TAGGED_MEMBER_INQUIRY_SUCCESS;
 
 @RestController
 @RequiredArgsConstructor

@@ -1,5 +1,6 @@
 package com.sopt.instagram.InstagramSERVER.friend.domain;
 
+import com.sopt.instagram.InstagramSERVER.common.domain.TimeStamped;
 import com.sopt.instagram.InstagramSERVER.member.domain.Member;
 import lombok.Builder;
 import lombok.Getter;
@@ -15,7 +16,7 @@ import static lombok.AccessLevel.PROTECTED;
 @Entity
 @Getter
 @NoArgsConstructor(access = PROTECTED)
-public class Friend {
+public class Friend extends TimeStamped {
     @Id
     @GeneratedValue(strategy = IDENTITY)
     @Column(name = "friend_id")

@@ -10,6 +10,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -35,7 +36,7 @@ public class FriendServiceImpl implements FriendService {
         return friendRepository.findByFollowMemberIdAndIsFavorite(memberId, true).stream()
                 .map(findFriend -> {
                     Member member = memberRepository.findById(findFriend.getFollowedMember().getId()).orElseThrow();
-                    return FriendResponseDto.of(member.getId(), member.getProfileUrl(), member.getName(), findFriend.getIsSpecial());
+                    return FriendResponseDto.of(member,findFriend);
                 })
                 .collect(Collectors.toList());
     }
@@ -45,5 +46,15 @@ public class FriendServiceImpl implements FriendService {
     public void updateFavoritesStatus(Long memberId, Long auth, boolean isFavorite) {
         Friend findFriend = friendRepository.findByFollowMemberIdAndFollowedMemberId(auth, memberId).orElseThrow();
         findFriend.changeFavoriteStatus(isFavorite);
+    }
+
+    @Override
+    @Transactional
+    public List<Member> getFollowMembers(Long memberId) {
+        return friendRepository.findByFollowMemberId(memberId).stream()
+                .map(friend -> {
+                    return memberRepository.findById(friend.getFollowedMember().getId()).orElseThrow();
+                })
+                .collect(Collectors.toList());
     }
 }

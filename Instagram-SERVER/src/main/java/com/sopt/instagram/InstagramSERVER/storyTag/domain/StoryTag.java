@@ -1,5 +1,6 @@
 package com.sopt.instagram.InstagramSERVER.storyTag.domain;
 
+import com.sopt.instagram.InstagramSERVER.common.domain.TimeStamped;
 import com.sopt.instagram.InstagramSERVER.member.domain.Member;
 import com.sopt.instagram.InstagramSERVER.story.domain.Story;
 import lombok.Builder;
@@ -15,7 +16,7 @@ import static lombok.AccessLevel.PROTECTED;
 @Entity
 @Getter
 @NoArgsConstructor(access = PROTECTED)
-public class StoryTag {
+public class StoryTag extends TimeStamped {
     @Id
     @GeneratedValue(strategy = IDENTITY)
     @Column(name = "storytag_id")
