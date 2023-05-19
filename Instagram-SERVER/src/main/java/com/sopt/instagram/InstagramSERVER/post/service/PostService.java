@@ -42,13 +42,13 @@ public class PostService {
     }
 
     @Transactional
-    public List<PostResponseDto> getPostByMemberId(Long memberId) {
-        List<Member> followMembers = friendService.getFollowMembers(memberId);
+    public List<PostResponseDto> getPostByMemberId(Long memberId) {List<Member> followMembers = friendService.getFollowMembers(memberId);
         List<Post> allFollowPosts = followMembers.stream()
                 .flatMap(followMember -> followMember.getPosts().stream())
                 .collect(Collectors.toList());
 
-        Collections.sort(allFollowPosts, Comparator.comparing(Post::getCreatedAt).reversed());
+        allFollowPosts.addAll(postRepository.findByMemberId(memberId));
+        allFollowPosts.sort(Comparator.comparing(Post::getCreatedAt).reversed());
 
         return allFollowPosts.stream()
                 .map(post -> PostResponseDto.of(post.getMember(), post))
