@@ -115,62 +115,9 @@ Class, Constructor를 작성할 때는 *Pascal Case(=upper 카멜 케이스)*를
 > Boolean의 경우 조동사+flag 종류로 구성됩니다. ex) isNum, hasNum
 > 
 
-- **약칭의 사용**
-
-약어는 되도록 사용하지 않는 것이 좋습니다. 부득이하게 약어가 필요하다고 판단되는 경우 팀원과의 상의를 거쳐보아요.
-
-단, 숫자일 경우 max, min, total과같은 단어로 설명하기루 합니다.
-
-```jsx
-let idx; // bad
-let index; // good
-
-let cnt; // bad
-let count; // good
-
-let arr; // bad
-let array; // good
-
-let seoul2Bucheon; // bad
-let seoulToBucheon; // good
-```
 </div>
 </details>
 
-<details>
-<summary>주석 규칙</summary>
-<div markdown="1"> 
-
-한줄은 //로 적고, 그 이상은 /** */로 주석을 작성합니다.
-
-> // 한 줄 주석일 때
-
-/**
-*여러줄
-*주석일 떄
-*/
-> 
-
-- **함수에 대한 주석**
-
-backend에서 공통적으로 사용하는 함수의 경우, 모듈화를 통해 하나의 파일로 관리합니다. 
-하나의 파일의 시작 부분에 주석으로 상세 내용을 작성합니다. 정리해야 하는 부분은 다음과 같습니다.
-
-- **함수의 전체 기능**에 대한 설명
-- 예시 코드
-    
-    ```jsx
-    영ㅎ
-    
-    router.get(
-      "/study/:roomNumber/questions",
-      [checkParamAndQuery("roomNumber").isNumeric()],
-      getQuestions.default
-    );
-    ```
-</div>
-</details>
-    
 <details>
 <summary>함수 사용</summary>
 <div markdown="1"> 
@@ -179,7 +126,7 @@ backend에서 공통적으로 사용하는 함수의 경우, 모듈화를 통해
 
 불가피한 경우를 제외하고 else if의 사용을 최대한 줄여야 합니다. ex) 조건을 만족하면 탈출하는 if로 구현하는 등
 
-```jsx
+```java
 if ( a > b ) {
   //...
 } else if ( b > a ){   -> bad
@@ -193,28 +140,6 @@ if ( a > b) {
 }
 ```
 
-- **함수 파라미터 개수 제한**
-
-함수의 인자로 변수를 선언하는 것은 3개까지 가능합니다.
-
-```jsx
-function test (a, b, c, d) {
-    console.log(a, b, c, d) => bad
-}
-
-function test (a, b, c) {
-    console.log(a, b, c) => good
-}
-```
-
-- **비동기 함수의 사용**
-
-Promise함수의 사용은 지양하고 async, await를 사용하도록 합니다. 
-
-- 화살표 함수의 사용
-
-최대한 화살표 함수를 사용해서 코드를 구현한다.
-  
 </div>
 </details>
 <br>
