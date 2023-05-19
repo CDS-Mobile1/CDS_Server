@@ -1,5 +1,9 @@
 package com.sopt.instagram.InstagramSERVER.post.service;
 
+import com.sopt.instagram.InstagramSERVER.common.exception.BusinessException;
+import com.sopt.instagram.InstagramSERVER.common.exception.ErrorStatus;
+import com.sopt.instagram.InstagramSERVER.friend.domain.Friend;
+import com.sopt.instagram.InstagramSERVER.friend.repository.FriendRepository;
 import com.sopt.instagram.InstagramSERVER.friend.service.FriendService;
 import com.sopt.instagram.InstagramSERVER.member.domain.Member;
 import com.sopt.instagram.InstagramSERVER.member.service.MemberService;
@@ -18,12 +22,15 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import static com.sopt.instagram.InstagramSERVER.common.exception.ErrorStatus.READ_POST_BY_MEMBER_FAIL;
+
 @Service
 @RequiredArgsConstructor
 public class PostService {
 
     private final PostRepository postRepository;
     private final PostImageRepository postImageRepository;
+    private final FriendRepository friendRepository;
     private final MemberService memberService;
     private final FriendService friendService;
 
@@ -42,7 +49,8 @@ public class PostService {
     }
 
     @Transactional
-    public List<PostResponseDto> getPostByMemberId(Long memberId) {List<Member> followMembers = friendService.getFollowMembers(memberId);
+    public List<PostResponseDto> getPostByMemberId(Long memberId) {
+        List<Member> followMembers = friendService.getFollowMembers(memberId);
         List<Post> allFollowPosts = followMembers.stream()
                 .flatMap(followMember -> followMember.getPosts().stream())
                 .collect(Collectors.toList());
@@ -51,7 +59,13 @@ public class PostService {
         allFollowPosts.sort(Comparator.comparing(Post::getCreatedAt).reversed());
 
         return allFollowPosts.stream()
-                .map(post -> PostResponseDto.of(post.getMember(), post))
+                .map(OnePost -> {
+                    Long followedMemberId = OnePost.getMember().getId();
+                    boolean isSpecial = (followedMemberId == memberId) ? false : friendRepository.findByFollowMemberIdAndFollowedMemberId(memberId, followedMemberId)
+                            .orElseThrow(() -> new BusinessException(READ_POST_BY_MEMBER_FAIL))
+                            .getIsSpecial();
+                    return PostResponseDto.of(OnePost.getMember(), isSpecial, OnePost);
+                })
                 .collect(Collectors.toList());
     }
 }

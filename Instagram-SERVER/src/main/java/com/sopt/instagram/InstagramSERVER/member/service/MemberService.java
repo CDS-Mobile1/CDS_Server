@@ -7,6 +7,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Optional;
+
 import static com.sopt.instagram.InstagramSERVER.common.exception.ErrorStatus.MEMBER_NOT_FOUND;
 
 @Service
@@ -20,4 +22,5 @@ public class MemberService {
         return memberRepository.findById(memberId)
                 .orElseThrow(() -> new BusinessException(MEMBER_NOT_FOUND));
     }
+
 }

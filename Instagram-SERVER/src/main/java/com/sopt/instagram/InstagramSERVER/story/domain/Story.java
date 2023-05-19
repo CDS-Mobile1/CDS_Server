@@ -32,5 +32,6 @@ public class Story extends TimeStamped {
     public Story(Member member, String imageUrl) {
         this.member = member;
         this.imageUrl = imageUrl;
+        this.member.addStory(this);
     }
 }

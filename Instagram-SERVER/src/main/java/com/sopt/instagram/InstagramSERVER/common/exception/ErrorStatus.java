@@ -14,6 +14,7 @@ public enum ErrorStatus {
      */
     VALIDATION_EXCEPTION(HttpStatus.BAD_REQUEST, "잘못된 요청입니다."),
     MISSING_REQUEST_HEADER(HttpStatus.BAD_REQUEST, "Authorization 값이 누락되었습니다."),
+    READ_POST_BY_MEMBER_FAIL(HttpStatus.BAD_REQUEST, "게시물 조회 실패"),
 
     /*
     SERVER_ERROR

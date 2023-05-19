@@ -32,6 +32,9 @@ public class Member extends TimeStamped {
     @OneToMany(mappedBy = "member", cascade = ALL)
     private List<Post> posts = new ArrayList<>();
 
+    @OneToMany(mappedBy = "member", cascade = ALL)
+    private List<Story> stories = new ArrayList<>();
+
     @Builder
     public Member(String name, String profileUrl) {
         this.name = name;
@@ -42,5 +45,11 @@ public class Member extends TimeStamped {
         this.profileUrl = "https://imson.imweb.me/common/img/default_profile.png";
     }
 
-    public void addPost(Post post) { posts.add(post);}
+    public void addPost(Post post) { posts.add(post); }
+
+    public void addStory(Story story) { stories.add(story); }
+
+    public boolean getStoryExists() {
+        return !stories.isEmpty();
+    }
 }
