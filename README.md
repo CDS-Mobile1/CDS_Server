@@ -222,8 +222,9 @@ Promise함수의 사용은 지양하고 async, await를 사용하도록 합니�
 ## ☑️ Git Convention
 ### 📌 Commit Convention
 
-[💻 Commit Convention](https://yesuri-masuri.notion.site/Git-08bb41f003044937b9cd67b62dc0436b)
+  - [💻 Commit Convention](https://yesuri-masuri.notion.site/Git-08bb41f003044937b9cd67b62dc0436b)
 
+<br>
 
 ### 📌 Branch Convention
 
@@ -234,10 +235,11 @@ Promise함수의 사용은 지양하고 async, await를 사용하도록 합니�
 - [modify] : 코드 수정 (기능의 변화가 있을 때)
 - [chore] : gradle 세팅, 위의 것 이외에 거의 모든 것
 
+<br>
 
 ### 📌 Branch Strategy
 
-[💻 Git 브랜치 전략](https://yesuri-masuri.notion.site/Git-d3c6adb65f23483397b25f028dbfa31b)
+   - [💻 Git 브랜치 전략](https://yesuri-masuri.notion.site/Git-d3c6adb65f23483397b25f028dbfa31b)
 
 <br>
 
