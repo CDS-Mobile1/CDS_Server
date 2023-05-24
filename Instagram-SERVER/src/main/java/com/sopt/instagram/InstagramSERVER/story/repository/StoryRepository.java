@@ -12,5 +12,5 @@ public interface StoryRepository extends Repository<Story, Long> {
 
     Optional<Story> findById(Long storyId);
 
-    List<Story> findByMemberId(Long memberId);
+    List<Story> findByMemberIdOrderByCreatedAtDesc(Long memberId);
 }
