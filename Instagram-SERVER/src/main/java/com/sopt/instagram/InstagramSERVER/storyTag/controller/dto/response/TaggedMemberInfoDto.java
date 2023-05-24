@@ -12,8 +12,9 @@ public class TaggedMemberInfoDto {
     private Long memberId;
     private String memberImageUrl;
     private String memberName;
+    private String memberIntroduction;
 
     public static TaggedMemberInfoDto of(Member member) {
-        return new TaggedMemberInfoDto(member.getId(), member.getProfileUrl(), member.getName());
+        return new TaggedMemberInfoDto(member.getId(), member.getProfileUrl(), member.getName(), member.getIntroduction());
     }
 }

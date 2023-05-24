@@ -27,6 +27,9 @@ public class Member extends TimeStamped {
     @Column(nullable = false)
     private String name;
 
+    @Column(nullable = false)
+    private String introduction;
+
     private String profileUrl;
 
     @OneToMany(mappedBy = "member", cascade = ALL)
@@ -36,9 +39,10 @@ public class Member extends TimeStamped {
     private List<Story> stories = new ArrayList<>();
 
     @Builder
-    public Member(String name, String profileUrl) {
+    public Member(String name, String profileUrl, String introduction) {
         this.name = name;
         this.profileUrl = profileUrl;
+        this.introduction = introduction;
     }
 
     public void setDefaultImage() {
