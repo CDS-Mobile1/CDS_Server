@@ -15,7 +15,7 @@ public class StoryService {
     private final StoryRepository storyRepository;
 
     public List<StoryInfoDto> getStories(Long memberId) {
-        List<Story> stories = storyRepository.findByMemberId(memberId);
+        List<Story> stories = storyRepository.findByMemberIdOrderByCreatedAtDesc(memberId);
 
         return stories.stream()
                 .map(story -> StoryInfoDto.of(story)).collect(Collectors.toList());
